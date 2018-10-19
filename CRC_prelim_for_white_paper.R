@@ -30,10 +30,23 @@ PBDE_mys <- ggplot(data = mys, aes(x = Species, y = SumBDEs, colour = Species)) 
                     geom_jitter(width = 0.25) + 
                     geom_boxplot(alpha = 0.5) + 
                     ggtitle("PBDEs in California Current mysticete biopsies") + 
-                    theme(plot.title = element_text(hjust = 0.5), axis.text = element_text(size = 12)) +
-                    ylab(expression(Sigma~BDEs~(ng/g~wet~wt)))
+                    theme(plot.title = element_text(hjust = 0.5), axis.text = element_text(size = 12), 
+                          axis.title.x = element_text(size = 13), axis.title.y = element_text(size = 13)) +
+                    ylab(expression(Sigma~10~BDEs~(ng/g~wet~wt)))
 
 PBDE_mys
+
+
+PBDE_mys_time <- ggplot(data = mys, aes(x = Collection.Date, y = SumBDEs)) +
+  geom_point(aes(colour = Species)) + geom_smooth(method = "lm", color = "black") +
+  theme(plot.title = element_text(hjust = 0.5), axis.text = element_text(size = 12), 
+        axis.title.x = element_text(size = 13), axis.title.y = element_text(size = 13)) +
+  ggtitle("PBDEs in California Current mysticete biopsies over time") + 
+  xlab("Collection Date") +
+  ylab(expression(Sigma~10~BDEs~(ng/g~wet~wt)))
+ 
+PBDE_mys_time 
+
 
 PBDE_odon <- ggplot(data = odon, aes(x = Collection.Date, y = SumBDEs, colour = Species)) + 
   geom_point() +
