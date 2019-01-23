@@ -53,11 +53,3 @@ PBDE_odon <- ggplot(data = odon, aes(x = Collection.Date, y = SumBDEs, colour = 
   geom_smooth()
 
 PBDE_odon
-
-
-
-# Violin or boxlpot plot of mass loss by stage
-ML_V = ggplot(Mass_loss, aes(x = Stage, y = log(Mass.loss..g.), fill = Stage, colour = Stage)) +
-  geom_violin(alpha = 0.3) +
-  #geom_boxplot(alpha = 0.3) +
-  geom_jitter(width = 0.25, alpha = 0.5)
